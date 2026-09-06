@@ -1,0 +1,67 @@
+.syllabus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.syllabus-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.semester-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+.sem-1 { background-color: var(--primary); }
+.sem-2 { background-color: var(--success); }
+.sem-3 { background-color: var(--warning); }
+.sem-0 { background-color: var(--danger); }
+
+.course-name {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.subject-name {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.w-100 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.filters-bar {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .filters-bar {
+        flex-direction: column;
+    }
+    .filters-bar > * {
+        width: 100%;
+    }
+}

@@ -1,0 +1,12 @@
+# Block PHP execution in uploaded book cover images
+# Prevents uploaded PHP shells from executing
+
+Options -Indexes
+<FilesMatch "\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+<FilesMatch "\.(php|php3|php4|php5|php7|phtml|pl|py|jsp|asp|sh|cgi)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
