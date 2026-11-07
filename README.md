@@ -61,10 +61,6 @@ Follow these steps to run the project locally.
    http://localhost/Library-MS/
    ```
 
-## Project Repository
-
-[View Source Code on GitHub](https://github.com/akhileshbhatt049/Library-MS)
-
 ## Author
 
 **Akhilesh Bhatt**
