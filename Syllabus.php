@@ -41,37 +41,39 @@ if ($semester_filter) {
 $query .= " ORDER BY Course_Name, Semester, Subject_Name";
 
 $stmt = $conn->prepare($query);
+
 if ($types) {
     $stmt->bind_param($types, ...$params);
 }
+
 $stmt->execute();
 $syllabi = $stmt->get_result();
 $stmt->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syllabus - Library Management System</title>
     <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/global.css">
     <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/navbar.css">
     <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/Syllabus.css">
+    <title>Syllabus - Library Management System</title>
 </head>
 
 <body>
     <?php include 'PHP/login/includes/navbar.php'; ?>
 
     <div class="container" style="padding-top: 5%; padding-bottom: 2%;">
-
         <div class="page-header">
             <h1>Academic Syllabus</h1>
         </div>
 
         <form method="GET" class="filters-bar card">
-            <input type="text" name="search" class="form-control" placeholder="Search by subject name..."
-                value="<?php echo e($search); ?>">
+            <input type="text" name="search" class="form-control" placeholder="Search by subject name..." value="<?php echo e($search); ?>">
+            
             <select name="course" class="form-control course-filter">
                 <option value="">All Courses</option>
                 <?php foreach ($courses as $c): ?>
@@ -79,13 +81,16 @@ $stmt->close();
                     <?php echo e($c); ?></option>
                 <?php endforeach; ?>
             </select>
+
             <select name="semester" class="form-control course-filter">
                 <option value="">All Semesters</option>
+                
                 <?php for ($i = 1; $i <= 8; $i++): ?>
                 <option value="<?php echo $i; ?>" <?php if ($semester_filter == $i) echo 'selected'; ?>>Semester
                     <?php echo $i; ?></option>
                 <?php endfor; ?>
             </select>
+            
             <button type="submit" class="btn btn-primary">Filter</button>
             <?php if ($search || $course_filter || $semester_filter): ?>
             <a href="Syllabus.php" class="btn btn-outline">Clear</a>

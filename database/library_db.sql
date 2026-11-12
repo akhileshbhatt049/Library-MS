@@ -5,11 +5,11 @@
 -- Run in phpMyAdmin → Import, or MySQL CLI
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS `school`
+CREATE DATABASE IF NOT EXISTS `LibraryMS`
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
 
-USE `school`;
+USE `LibraryMS`;
 
 -- ------------------------------------------------------------
 -- 1. Accounts
