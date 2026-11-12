@@ -211,10 +211,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   var badge = document.getElementById("notif-count");
   if (!badge) return;
-  fetch(
-    "/PHP_programs/Library-MS/PHP/Notifications.php?action=count",
-    { credentials: "same-origin" },
-  )
+  fetch("/PHP_programs/Library-MS/PHP/Notifications.php?action=count", {
+    credentials: "same-origin",
+  })
     .then(function (r) {
       return r.json();
     })
