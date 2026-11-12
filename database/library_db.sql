@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `ManageBooksAdmin` (
   `Author`           VARCHAR(150) NOT NULL,
   `ISBN`             VARCHAR(30)  NOT NULL UNIQUE,
   `Category`         VARCHAR(100) NOT NULL DEFAULT 'General',
-  `ASCription`      TEXT          DEFAULT NULL,
+  `description`      TEXT          DEFAULT NULL,
   `CoverImage`       VARCHAR(255)  DEFAULT NULL,
   `TotalCopies`      INT          NOT NULL DEFAULT 1,
   `AvailableCopies`  INT          NOT NULL DEFAULT 1,
@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `PasswordResetOTP` (
 -- SAMPLE DATA
 -- ============================================================
 INSERT IGNORE INTO `ManageBooksAdmin`
-  (`BookName`, `Author`, `ISBN`, `Category`, `ASCription`, `TotalCopies`, `AvailableCopies`)
+  (`BookName`, `Author`, `ISBN`, `Category`, `description`, `TotalCopies`, `AvailableCopies`)
 VALUES
   ('Introduction to Algorithms', 'Thomas H. Cormen', '978-0262033848', 'Computer Science',
    'A comprehensive textbook on algorithms and data structures.', 5, 5),

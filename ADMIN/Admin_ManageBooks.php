@@ -115,7 +115,7 @@ $categories = ['Computer Science','Mathematics','Database','Software Engineering
           <div class="form-group"><label>Total Copies *</label><input type="number" name="TotalCopies" class="form-control" required min="1" value="1"></div>
           <div class="form-group"><label>Cover Image <small>(JPEG/PNG/WebP, max 5MB)</small></label><input type="file" name="CoverImage" class="form-control" accept="image/jpeg,image/png,image/webp"></div>
         </div>
-        <div class="form-group"><label>ASCription</label><textarea name="ASCription" class="form-control" rows="3" maxlength="1000"></textarea></div>
+        <div class="form-group"><label>description</label><textarea name="description" class="form-control" rows="3" maxlength="1000"></textarea></div>
         <button type="submit" class="btn btn-primary btn-full" id="add-book-btn">Save Book</button>
       </form>
     </div>
@@ -145,7 +145,7 @@ $categories = ['Computer Science','Mathematics','Database','Software Engineering
           <div class="form-group"><label>Total Copies *</label><input type="number" name="TotalCopies" id="edit-copies" class="form-control" required min="1"></div>
           <div class="form-group"><label>New Cover <small>(leave blank to keep)</small></label><input type="file" name="CoverImage" class="form-control" accept="image/jpeg,image/png,image/webp"></div>
         </div>
-        <div class="form-group"><label>ASCription</label><textarea name="ASCription" id="edit-ASC" class="form-control" rows="3" maxlength="1000"></textarea></div>
+        <div class="form-group"><label>description</label><textarea name="description" id="edit-ASC" class="form-control" rows="3" maxlength="1000"></textarea></div>
         <button type="submit" class="btn btn-primary btn-full" id="edit-book-btn">Update Book</button>
       </form>
     </div>
@@ -179,7 +179,7 @@ function editBook(book) {
     document.getElementById('edit-isbn').value     = book.ISBN;
     document.getElementById('edit-category').value = book.Category;
     document.getElementById('edit-copies').value   = book.TotalCopies;
-    document.getElementById('edit-ASC').value     = book.ASCription || '';
+    document.getElementById('edit-ASC').value     = book.description || '';
     openModal('editBookModal');
 }
 

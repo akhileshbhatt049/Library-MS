@@ -41,7 +41,7 @@ function jsonError(string $message = 'An error occurred', int $httpCode = 400): 
  *
  * @param mysqli      $conn
  * @param string|null $userId       Session user_id (or null for system actions)
- * @param string      $action       Human-readable ASCription
+ * @param string      $action       Human-readable description
  * @param string|null $targetTable  DB table affected (optional)
  * @param int|null    $targetId     Row ID affected (optional)
  */

@@ -30,7 +30,7 @@ if ($action === 'add') {
     $author   = trim($_POST['Author']       ?? '');
     $isbn     = trim($_POST['ISBN']         ?? '');
     $category = trim($_POST['Category']     ?? 'General');
-    $ASC     = trim($_POST['ASCription']  ?? '');
+    $ASC     = trim($_POST['description']  ?? '');
     $copies   = max(1, (int) ($_POST['TotalCopies'] ?? 1));
 
     if (!$bookName || !$author || !$isbn) {
@@ -65,7 +65,7 @@ if ($action === 'add') {
     $chk->close();
 
     $stmt = $conn->prepare(
-        "INSERT INTO ManageBooksAdmin (BookName, Author, ISBN, Category, ASCription, CoverImage, TotalCopies, AvailableCopies)
+        "INSERT INTO ManageBooksAdmin (BookName, Author, ISBN, Category, description, CoverImage, TotalCopies, AvailableCopies)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
     );
     $stmt->bind_param('ssssssii', $bookName, $author, $isbn, $category, $ASC, $cover, $copies, $copies);
@@ -88,7 +88,7 @@ elseif ($action === 'edit') {
     $author   = trim($_POST['Author']         ?? '');
     $isbn     = trim($_POST['ISBN']           ?? '');
     $category = trim($_POST['Category']       ?? 'General');
-    $ASC     = trim($_POST['ASCription']    ?? '');
+    $ASC     = trim($_POST['description']    ?? '');
     $copies   = max(1, (int) ($_POST['TotalCopies'] ?? 1));
 
     if (!$id || !$bookName || !$author || !$isbn) {
@@ -131,7 +131,7 @@ elseif ($action === 'edit') {
 
     $stmt = $conn->prepare(
         "UPDATE ManageBooksAdmin
-         SET BookName=?, Author=?, ISBN=?, Category=?, ASCription=?, CoverImage=?, TotalCopies=?, AvailableCopies=?
+         SET BookName=?, Author=?, ISBN=?, Category=?, description=?, CoverImage=?, TotalCopies=?, AvailableCopies=?
          WHERE id=? LIMIT 1"
     );
     $stmt->bind_param('ssssssiis', $bookName, $author, $isbn, $category, $ASC, $cover, $copies, $available, $id);

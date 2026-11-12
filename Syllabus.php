@@ -70,58 +70,63 @@ $stmt->close();
         </div>
 
         <form method="GET" class="filters-bar card">
-            <input type="text" name="search" class="form-control" placeholder="Search by subject name..." value="<?php echo e($search); ?>">
+            <input type="text" name="search" class="form-control" placeholder="Search by subject name..."
+                value="<?php echo e($search); ?>">
             <select name="course" class="form-control course-filter">
                 <option value="">All Courses</option>
                 <?php foreach ($courses as $c): ?>
-                    <option value="<?php echo e($c); ?>" <?php if ($course_filter == $c) echo 'selected'; ?>><?php echo e($c); ?></option>
+                <option value="<?php echo e($c); ?>" <?php if ($course_filter == $c) echo 'selected'; ?>>
+                    <?php echo e($c); ?></option>
                 <?php endforeach; ?>
             </select>
             <select name="semester" class="form-control course-filter">
                 <option value="">All Semesters</option>
                 <?php for ($i = 1; $i <= 8; $i++): ?>
-                    <option value="<?php echo $i; ?>" <?php if ($semester_filter == $i) echo 'selected'; ?>>Semester <?php echo $i; ?></option>
+                <option value="<?php echo $i; ?>" <?php if ($semester_filter == $i) echo 'selected'; ?>>Semester
+                    <?php echo $i; ?></option>
                 <?php endfor; ?>
             </select>
             <button type="submit" class="btn btn-primary">Filter</button>
             <?php if ($search || $course_filter || $semester_filter): ?>
-                <a href="Syllabus.php" class="btn btn-outline">Clear</a>
+            <a href="Syllabus.php" class="btn btn-outline">Clear</a>
             <?php endif; ?>
         </form>
 
         <?php if ($syllabi->num_rows > 0): ?>
-            <div class="syllabus-grid">
-                <?php while ($row = $syllabi->fetch_assoc()):
+        <div class="syllabus-grid">
+            <?php while ($row = $syllabi->fetch_assoc()):
                     $semClass = "sem-" . ($row['Semester'] % 4); // Just to give different colors
                 ?>
-                    <div class="syllabus-card card">
-                        <div class="card-top">
-                            <span class="semester-badge <?php echo $semClass; ?>">Semester <?php echo e($row['Semester']); ?></span>
-                            <div class="course-name"><?php echo e($row['Course_Name']); ?></div>
-                        </div>
-                        <h3 class="subject-name"><?php echo e($row['Subject_Name']); ?></h3>
-                        <div class="mt-auto">
-                            <a href="/PHP_programs/Library-MS/ADMIN/uploads/syllabus/<?php echo e($row['Course_PDF']); ?>" target="_blank" class="btn btn-outline w-100">
-                                <span class="icon">📄</span> View PDF
-                            </a>
-                        </div>
-                    </div>
-                <?php endwhile; ?>
+            <div class="syllabus-card card">
+                <div class="card-top">
+                    <span class="semester-badge <?php echo $semClass; ?>">Semester
+                        <?php echo e($row['Semester']); ?></span>
+                    <div class="course-name"><?php echo e($row['Course_Name']); ?></div>
+                </div>
+                <h3 class="subject-name"><?php echo e($row['Subject_Name']); ?></h3>
+                <div class="mt-auto">
+                    <a href="/PHP_programs/Library-MS/ADMIN/uploads/syllabus/<?php echo e($row['Course_PDF']); ?>"
+                        target="_blank" class="btn btn-outline w-100">
+                        <span class="icon">📄</span> View PDF
+                    </a>
+                </div>
             </div>
+            <?php endwhile; ?>
+        </div>
         <?php else: ?>
-            <div class="card" style="text-align: center; padding: 3rem;">
-                <h3 class="text-muted">No syllabus records found.</h3>
-                <p>Try adjusting your filters.</p>
-            </div>
+        <div class="card" style="text-align: center; padding: 3rem;">
+            <h3 class="text-muted">No syllabus records found.</h3>
+            <p>Try adjusting your filters.</p>
+        </div>
         <?php endif; ?>
 
     </div>
 
     <script src="/PHP_programs/Library-MS/Assets/JS/global.js"></script>
     <script>
-        document.getElementById('hamburger').addEventListener('click', function() {
-            document.getElementById('navbar-links').classList.toggle('active');
-        });
+    document.getElementById('hamburger').addEventListener('click', function() {
+        document.getElementById('navbar-links').classList.toggle('active');
+    });
     </script>
 </body>
 

@@ -1,38 +1,43 @@
 .request-form-card {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 2rem;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .reason-textarea {
-    min-height: 120px;
-    resize: vertical;
+  min-height: 120px;
+  resize: vertical;
 }
 
 .request-history {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
 }
 
-.request-history th, .request-history td {
-    padding: 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
+.request-history th,
+.request-history td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
 }
 
 .request-history th {
-    background: var(--bg);
-    font-weight: 600;
+  background: var(--bg);
+  font-weight: 600;
 }
 
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
-.mt-2 { margin-top: 1rem; }
-.mt-4 { margin-top: 2rem; }
+.mt-2 {
+  margin-top: 1rem;
+}
+.mt-4 {
+  margin-top: 2rem;
+}
