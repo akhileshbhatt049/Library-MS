@@ -64,9 +64,9 @@ $maxDate = date('Y-m-d', strtotime('+30 days'));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borrow Books — LibraryMS</title>
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/global.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/navbar.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/Borrow Books.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/global.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/navbar.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/Borrow Books.css">
 </head>
 
 <body>
@@ -112,7 +112,7 @@ $maxDate = date('Y-m-d', strtotime('+30 days'));
                     data-category="<?= e($book['Category']) ?>"
                     style="padding:0;overflow:hidden;display:flex;flex-direction:column;">
                     <?php if ($book['CoverImage']): ?>
-                        <img src="/PHP_programs/Library-Management-System/Assets/uploads/books/<?= e($book['CoverImage']) ?>"
+                        <img src="/PHP_programs/Library-MS/Assets/uploads/books/<?= e($book['CoverImage']) ?>"
                             alt="Cover" style="width:100%;height:180px;object-fit:cover;">
                     <?php else: ?>
                         <div style="width:100%;height:180px;background:linear-gradient(135deg,#1e3a5f,#2d5a8e);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">📖</div>
@@ -130,7 +130,7 @@ $maxDate = date('Y-m-d', strtotime('+30 days'));
                                 <button type="button" class="btn btn-primary btn-sm btn-full" onclick='openBorrowModal(<?= $bookData ?>)'>Request Borrow</button>
                             <?php else: ?>
                                 <span class="badge badge-rejected" style="margin-bottom:.4rem;">Unavailable</span>
-                                <a href="/PHP_programs/Library-Management-System/RequestBook.php?title=<?= urlencode($book['BookName']) ?>" class="btn btn-secondary btn-sm btn-full" style="text-align:center;">Request Book</a>
+                                <a href="/PHP_programs/Library-MS/RequestBook.php?title=<?= urlencode($book['BookName']) ?>" class="btn btn-secondary btn-sm btn-full" style="text-align:center;">Request Book</a>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -229,8 +229,8 @@ $maxDate = date('Y-m-d', strtotime('+30 days'));
         </div>
     </div>
 
-    <script src="/PHP_programs/Library-Management-System/Assets/JS/global.js"></script>
-    <script src="/PHP_programs/Library-Management-System/Assets/JS/borrow_books.js"></script>
+    <script src="/PHP_programs/Library-MS/Assets/JS/global.js"></script>
+    <script src="/PHP_programs/Library-MS/Assets/JS/borrow_books.js"></script>
     <script>
         // Search + filter
         const grid = document.getElementById('book-grid');
@@ -276,7 +276,7 @@ $maxDate = date('Y-m-d', strtotime('+30 days'));
             const btn = document.getElementById('borrow-submit-btn');
             btn.disabled = true;
             btn.textContent = 'Submitting…';
-            postForm('/PHP_programs/Library-Management-System/PHP/BorrowRequest.php', new FormData(this))
+            postForm('/PHP_programs/Library-MS/PHP/BorrowRequest.php', new FormData(this))
                 .then(r => {
                     if (r.success) {
                         toast(r.message, 'success', 7000);

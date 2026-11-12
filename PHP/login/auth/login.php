@@ -98,7 +98,7 @@ loginUser($user);
 logActivity($conn, $user['user_id'], 'User logged in', 'Accounts', null);
 
 $redirect = $user['is_admin']
-    ? '/PHP_programs/Library-Management-System/ADMIN/AdministratorArea.php'
-    : '/PHP_programs/Library-Management-System/Home.php';
+    ? '/PHP_programs/Library-MS/ADMIN/AdministratorArea.php'
+    : '/PHP_programs/Library-MS/Home.php';
 
 jsonSuccess('Login successful', ['redirect' => $redirect]);

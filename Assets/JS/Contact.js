@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const res = await postForm(
-                '/PHP_programs/Library-Management-System/PHP/Contact.php',
+                '/PHP_programs/Library-MS/PHP/Contact.php',
                 formData
             );
 

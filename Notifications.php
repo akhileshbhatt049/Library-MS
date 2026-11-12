@@ -30,9 +30,9 @@ $stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notifications — LibraryMS</title>
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/global.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/navbar.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/Accounts.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/global.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/navbar.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/Accounts.css">
 </head>
 
 <body>
@@ -42,7 +42,7 @@ $stmt->close();
     <div class="container page-wrapper" style="max-width:760px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
             <h1>🔔 Notifications</h1>
-            <a href="/PHP_programs/Library-Management-System/Home.php" class="btn btn-secondary btn-sm">← Back Home</a>
+            <a href="/PHP_programs/Library-MS/Home.php" class="btn btn-secondary btn-sm">← Back Home</a>
         </div>
 
         <div class="card">
@@ -67,7 +67,7 @@ $stmt->close();
         </div>
     </div>
 
-    <script src="/PHP_programs/Library-Management-System/Assets/JS/global.js"></script>
+    <script src="/PHP_programs/Library-MS/Assets/JS/global.js"></script>
     <script>
         // Reset the badge in navbar
         const badge = document.getElementById('notif-count');

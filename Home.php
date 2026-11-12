@@ -65,9 +65,9 @@ $avatarFile = $avatarRow['profile_image'] ?? null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home — LibraryMS</title>
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/global.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/navbar.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/Home.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/global.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/navbar.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/Home.css">
 </head>
 
 <body>
@@ -107,13 +107,13 @@ $avatarFile = $avatarRow['profile_image'] ?? null;
             <div>
                 <div class="section-header">
                     <h2 class="section-title">Recently Added Books</h2>
-                    <a href="/PHP_programs/Library-Management-System/BorrowBooks.php" class="btn btn-secondary btn-sm">View All</a>
+                    <a href="/PHP_programs/Library-MS/BorrowBooks.php" class="btn btn-secondary btn-sm">View All</a>
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;">
                     <?php while ($book = $recent_books->fetch_assoc()): ?>
                         <div class="card card-hover" style="padding:0;overflow:hidden;display:flex;flex-direction:column;">
                             <?php if ($book['CoverImage']): ?>
-                                <img src="/PHP_programs/Library-Management-System/Assets/uploads/books/<?= e($book['CoverImage']) ?>"
+                                <img src="/PHP_programs/Library-MS/Assets/uploads/books/<?= e($book['CoverImage']) ?>"
                                     alt="Cover" style="width:100%;height:180px;object-fit:cover;">
                             <?php else: ?>
                                 <div style="width:100%;height:180px;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;font-size:2.5rem;">📖</div>
@@ -124,10 +124,10 @@ $avatarFile = $avatarRow['profile_image'] ?? null;
                                 <span class="badge" style="background:#e0f2fe;color:#0369a1;font-size:.72rem;margin-bottom:.6rem;"><?= e($book['Category']) ?></span>
                                 <?php if ($book['AvailableCopies'] > 0): ?>
                                     <span class="badge badge-approved" style="margin-bottom:.5rem;">Available (<?= (int)$book['AvailableCopies'] ?>)</span>
-                                    <a href="/PHP_programs/Library-Management-System/BorrowBooks.php?isbn=<?= urlencode($book['ISBN']) ?>" class="btn btn-primary btn-sm" style="text-align:center;margin-top:auto;">Borrow</a>
+                                    <a href="/PHP_programs/Library-MS/BorrowBooks.php?isbn=<?= urlencode($book['ISBN']) ?>" class="btn btn-primary btn-sm" style="text-align:center;margin-top:auto;">Borrow</a>
                                 <?php else: ?>
                                     <span class="badge badge-rejected" style="margin-bottom:.5rem;">Unavailable</span>
-                                    <a href="/PHP_programs/Library-Management-System/RequestBook.php?title=<?= urlencode($book['BookName']) ?>" class="btn btn-secondary btn-sm" style="text-align:center;margin-top:auto;">Request</a>
+                                    <a href="/PHP_programs/Library-MS/RequestBook.php?title=<?= urlencode($book['BookName']) ?>" class="btn btn-secondary btn-sm" style="text-align:center;margin-top:auto;">Request</a>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -154,10 +154,10 @@ $avatarFile = $avatarRow['profile_image'] ?? null;
                                 <span class="badge <?= $cls ?>"><?= e($req['Status']) ?></span>
                             </div>
                         <?php endwhile; ?>
-                        <a href="/PHP_programs/Library-Management-System/Account.php" class="btn btn-secondary btn-sm btn-full" style="margin-top:.75rem;">View All</a>
+                        <a href="/PHP_programs/Library-MS/Account.php" class="btn btn-secondary btn-sm btn-full" style="margin-top:.75rem;">View All</a>
                     <?php else: ?>
                         <p style="color:var(--text-muted);text-align:center;padding:1rem 0;">No requests yet.</p>
-                        <a href="/PHP_programs/Library-Management-System/BorrowBooks.php" class="btn btn-primary btn-sm btn-full">Browse Books</a>
+                        <a href="/PHP_programs/Library-MS/BorrowBooks.php" class="btn btn-primary btn-sm btn-full">Browse Books</a>
                     <?php endif; ?>
                 </div>
 
@@ -166,11 +166,11 @@ $avatarFile = $avatarRow['profile_image'] ?? null;
                     <h3 style="margin:0 0 1rem;">Quick Links</h3>
                     <?php
                     $links = [
-                        ['📚', 'Borrow Books',   '/PHP_programs/Library-Management-System/BorrowBooks.php'],
-                        ['📄', 'Syllabus',       '/PHP_programs/Library-Management-System/Syllabus.php'],
-                        ['➕', 'Request Book',   '/PHP_programs/Library-Management-System/RequestBook.php'],
-                        ['✉️', 'Contact Us',    '/PHP_programs/Library-Management-System/Contact.php'],
-                        ['🔔', 'Notifications', '/PHP_programs/Library-Management-System/Notifications.php'],
+                        ['📚', 'Borrow Books',   '/PHP_programs/Library-MS/BorrowBooks.php'],
+                        ['📄', 'Syllabus',       '/PHP_programs/Library-MS/Syllabus.php'],
+                        ['➕', 'Request Book',   '/PHP_programs/Library-MS/RequestBook.php'],
+                        ['✉️', 'Contact Us',    '/PHP_programs/Library-MS/Contact.php'],
+                        ['🔔', 'Notifications', '/PHP_programs/Library-MS/Notifications.php'],
                     ];
                     foreach ($links as [$icon, $label, $href]):
                     ?>
@@ -184,7 +184,7 @@ $avatarFile = $avatarRow['profile_image'] ?? null;
         </div>
     </div>
 
-    <script src="/PHP_programs/Library-Management-System/Assets/JS/global.js"></script>
+    <script src="/PHP_programs/Library-MS/Assets/JS/global.js"></script>
 </body>
 
 </html>

@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pass  = document.getElementById('login_password').value;
         btn.disabled = true; btn.textContent = 'Signing in…';
         try {
-            const res = await postJSON('/PHP_programs/Library-Management-System/PHP/login/auth/login.php', { email, password: pass });
+            const res = await postJSON('/PHP_programs/Library-MS/PHP/login/auth/login.php', { email, password: pass });
             if (res.success)  window.location.href = res.redirect;
             else              toast(res.message, 'error', 7000);
         } catch { toast('Network error. Please try again.', 'error', 7000); }
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (measureStrength(pw) < 2) { toast('Password too weak — add letters, numbers and symbols', 'error', 7000); return; }
         btn.disabled = true; btn.textContent = 'Creating…';
         try {
-            const res = await postJSON('/PHP_programs/Library-Management-System/PHP/login/auth/register.php', {
+            const res = await postJSON('/PHP_programs/Library-MS/PHP/login/auth/register.php', {
                 fullname: name, email: em, phone: ph, password: pw, confirmPassword: cf
             });
             if (res.success) { toast(res.message, 'success', 7000); setTimeout(() => location.reload(), 2000); }
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!email) { toast('Please enter your email address', 'error', 7000); return; }
         this.disabled = true; this.textContent = 'Sending…';
         try {
-            const res = await postJSON('/PHP_programs/Library-Management-System/PHP/login/auth/send-otp.php', { email });
+            const res = await postJSON('/PHP_programs/Library-MS/PHP/login/auth/send-otp.php', { email });
             if (res.success) {
                 otpEmail = email;
                 toast(res.message, 'success', 7000);
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!otp || !/^\d{6}$/.test(otp)) { toast('Enter a valid 6-digit OTP', 'error', 7000); return; }
         this.disabled = true; this.textContent = 'Verifying…';
         try {
-            const res = await postJSON('/PHP_programs/Library-Management-System/PHP/login/auth/verify-otp.php', { email: otpEmail, otp });
+            const res = await postJSON('/PHP_programs/Library-MS/PHP/login/auth/verify-otp.php', { email: otpEmail, otp });
             if (res.success) {
                 clearCountdown();
                 toast(res.message, 'success', 7000);
@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn-resend-otp')?.addEventListener('click', async function () {
         this.disabled = true; this.textContent = 'Sending…';
         try {
-            const res = await postJSON('/PHP_programs/Library-Management-System/PHP/login/auth/send-otp.php', { email: otpEmail });
+            const res = await postJSON('/PHP_programs/Library-MS/PHP/login/auth/send-otp.php', { email: otpEmail });
             if (res.success) {
                 toast(res.message, 'success', 7000);
                 this.style.display = 'none';
@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (pw !== cf) { toast('Passwords do not match', 'error', 7000); return; }
         this.disabled = true; this.textContent = 'Resetting…';
         try {
-            const res = await postJSON('/PHP_programs/Library-Management-System/PHP/login/auth/reset-password.php', {
+            const res = await postJSON('/PHP_programs/Library-MS/PHP/login/auth/reset-password.php', {
                 password: pw, confirmPassword: cf
             });
             if (res.success) {

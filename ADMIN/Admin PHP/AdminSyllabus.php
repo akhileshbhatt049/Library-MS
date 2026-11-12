@@ -38,7 +38,7 @@ if ($action === 'upload') {
     }
 
     try {
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-Management-System/ADMIN/uploads/syllabus/';
+        $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-MS/ADMIN/uploads/syllabus/';
         $filename  = handleUpload(
             $_FILES['pdf'],
             $uploadDir,
@@ -62,7 +62,7 @@ if ($action === 'upload') {
     } else {
         $stmt->close();
         // Clean up orphaned upload on DB failure
-        $fullPath = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-Management-System/ADMIN/uploads/syllabus/' . $filename;
+        $fullPath = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-MS/ADMIN/uploads/syllabus/' . $filename;
         if (is_file($fullPath)) { @unlink($fullPath); }
         jsonError('Failed to save syllabus record');
     }
@@ -88,7 +88,7 @@ elseif ($action === 'delete') {
     if ($del->execute()) {
         $del->close();
         // Delete the PDF file from disk
-        $pdfPath = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-Management-System/ADMIN/uploads/syllabus/' . $row['Course_PDF'];
+        $pdfPath = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-MS/ADMIN/uploads/syllabus/' . $row['Course_PDF'];
         if (is_file($pdfPath)) { @unlink($pdfPath); }
         logActivity($conn, $userId, "Deleted syllabus: {$row['Subject_Name']}", 'ADMIN_SYLLABUS', $id);
         jsonSuccess('Syllabus deleted successfully');

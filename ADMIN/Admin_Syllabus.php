@@ -48,7 +48,7 @@ $total = $conn->query("SELECT COUNT(*) FROM ADMIN_SYLLABUS")->fetch_row()[0];
               <td><?php echo e($row['Course_Name']); ?></td>
               <td><?php echo e($row['Semester']); ?></td>
               <td><?php echo e($row['Subject_Name']); ?></td>
-              <td><a href="/PHP_programs/Library-Management-System/ADMIN/uploads/syllabus/<?php echo e($row['Upload_Syllabus']); ?>" target="_blank">View PDF</a></td>
+              <td><a href="/PHP_programs/Library-MS/ADMIN/uploads/syllabus/<?php echo e($row['Upload_Syllabus']); ?>" target="_blank">View PDF</a></td>
               <td>
                 <button class="action-btn delete" onclick="deleteSyllabus(<?php echo $row['id']; ?>)">Delete</button>
               </td>

@@ -41,7 +41,7 @@ if ($action === 'add') {
     $cover = null;
     if (isset($_FILES['CoverImage']) && $_FILES['CoverImage']['error'] === UPLOAD_ERR_OK) {
         try {
-            $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-Management-System/Assets/uploads/books/';
+            $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-MS/Assets/uploads/books/';
             $filename  = handleUpload(
                 $_FILES['CoverImage'],
                 $uploadDir,
@@ -111,7 +111,7 @@ elseif ($action === 'edit') {
     $cover = $row['CoverImage'];
     if (isset($_FILES['CoverImage']) && $_FILES['CoverImage']['error'] === UPLOAD_ERR_OK) {
         try {
-            $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-Management-System/Assets/uploads/books/';
+            $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-MS/Assets/uploads/books/';
             $filename  = handleUpload(
                 $_FILES['CoverImage'],
                 $uploadDir,
@@ -120,7 +120,7 @@ elseif ($action === 'edit') {
             );
             // Delete old image
             if ($row['CoverImage']) {
-                $oldPath = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-Management-System/Assets/uploads/books/' . $row['CoverImage'];
+                $oldPath = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-MS/Assets/uploads/books/' . $row['CoverImage'];
                 if (is_file($oldPath)) { @unlink($oldPath); }
             }
             $cover = $filename;
@@ -184,7 +184,7 @@ elseif ($action === 'delete') {
         $stmt->close();
         // Remove cover file
         if ($row['CoverImage']) {
-            $imgPath = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-Management-System/Assets/uploads/books/' . $row['CoverImage'];
+            $imgPath = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-MS/Assets/uploads/books/' . $row['CoverImage'];
             if (is_file($imgPath)) { @unlink($imgPath); }
         }
         logActivity($conn, $userId, "Deleted book: {$row['BookName']}", 'ManageBooksAdmin', $id);

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
 
-            postJSON('/Library-Management-System/PHP/RequestBook.php', data)
+            postJSON('/Library-MS/PHP/RequestBook.php', data)
             .then(response => {
                 if(response.success) {
                     toast('Success', response.message, 'success');

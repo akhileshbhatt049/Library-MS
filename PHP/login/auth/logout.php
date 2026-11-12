@@ -25,5 +25,5 @@ if (ini_get('session.use_cookies')) {
 }
 session_destroy();
 
-header('Location: /PHP_programs/Library-Management-System/Sign_up.php');
+header('Location: /PHP_programs/Library-MS/Sign_up.php');
 exit;

@@ -26,7 +26,7 @@ if (!isset($_FILES['avatar']) || $_FILES['avatar']['error'] !== UPLOAD_ERR_OK) {
 }
 
 try {
-    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-Management-System/Assets/uploads/avatars/';
+    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-MS/Assets/uploads/avatars/';
     $filename  = handleUpload(
         $_FILES['avatar'],
         $uploadDir,
@@ -45,7 +45,7 @@ $row = $old->get_result()->fetch_assoc();
 $old->close();
 
 if (!empty($row['profile_image'])) {
-    $oldPath = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-Management-System/Assets/uploads/avatars/' . $row['profile_image'];
+    $oldPath = $_SERVER['DOCUMENT_ROOT'] . '/PHP_programs/Library-MS/Assets/uploads/avatars/' . $row['profile_image'];
     if (is_file($oldPath)) {
         @unlink($oldPath);
     }
@@ -61,7 +61,7 @@ if ($stmt->execute()) {
     // Update session name display if needed
     logActivity($conn, $userId, 'Updated profile picture', 'Accounts', null);
 
-    $avatarUrl = '/PHP_programs/Library-Management-System/Assets/uploads/avatars/' . $filename;
+    $avatarUrl = '/PHP_programs/Library-MS/Assets/uploads/avatars/' . $filename;
     jsonSuccess('Profile picture updated!', ['avatar_url' => $avatarUrl]);
 } else {
     $stmt->close();

@@ -36,7 +36,7 @@ function isAdmin(): bool
 function requireUser(): void
 {
     if (!isLoggedIn()) {
-        header('Location: /PHP_programs/Library-Management-System/Sign_up.php');
+        header('Location: /PHP_programs/Library-MS/Sign_up.php');
         exit;
     }
 }
@@ -44,7 +44,7 @@ function requireUser(): void
 function requireAdmin(): void
 {
     if (!isLoggedIn() || !isAdmin()) {
-        header('Location: /PHP_programs/Library-Management-System/Sign_up.php');
+        header('Location: /PHP_programs/Library-MS/Sign_up.php');
         exit;
     }
 }
@@ -54,8 +54,8 @@ function redirectIfLoggedIn(): void
     if (isLoggedIn()) {
         header(
             isAdmin()
-                ? 'Location: /PHP_programs/Library-Management-System/ADMIN/AdministratorArea.php'
-                : 'Location: /PHP_programs/Library-Management-System/Home.php'
+                ? 'Location: /PHP_programs/Library-MS/ADMIN/AdministratorArea.php'
+                : 'Location: /PHP_programs/Library-MS/Home.php'
         );
         exit;
     }

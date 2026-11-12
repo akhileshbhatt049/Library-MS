@@ -55,9 +55,9 @@ $stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syllabus - Library Management System</title>
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/global.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/navbar.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/Syllabus.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/global.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/navbar.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/Syllabus.css">
 </head>
 
 <body>
@@ -101,7 +101,7 @@ $stmt->close();
                         </div>
                         <h3 class="subject-name"><?php echo e($row['Subject_Name']); ?></h3>
                         <div class="mt-auto">
-                            <a href="/PHP_programs/Library-Management-System/ADMIN/uploads/syllabus/<?php echo e($row['Course_PDF']); ?>" target="_blank" class="btn btn-outline w-100">
+                            <a href="/PHP_programs/Library-MS/ADMIN/uploads/syllabus/<?php echo e($row['Course_PDF']); ?>" target="_blank" class="btn btn-outline w-100">
                                 <span class="icon">📄</span> View PDF
                             </a>
                         </div>
@@ -117,7 +117,7 @@ $stmt->close();
 
     </div>
 
-    <script src="/PHP_programs/Library-Management-System/Assets/JS/global.js"></script>
+    <script src="/PHP_programs/Library-MS/Assets/JS/global.js"></script>
     <script>
         document.getElementById('hamburger').addEventListener('click', function() {
             document.getElementById('navbar-links').classList.toggle('active');

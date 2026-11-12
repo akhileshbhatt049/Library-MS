@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var badge = document.getElementById("notif-count");
   if (!badge) return;
   fetch(
-    "/PHP_programs/Library-Management-System/PHP/Notifications.php?action=count",
+    "/PHP_programs/Library-MS/PHP/Notifications.php?action=count",
     { credentials: "same-origin" },
   )
     .then(function (r) {

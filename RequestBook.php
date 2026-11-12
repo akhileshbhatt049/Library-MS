@@ -29,9 +29,9 @@ $stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request a Book — LibraryMS</title>
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/global.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/navbar.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/RequestBook.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/global.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/navbar.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/RequestBook.css">
 </head>
 
 <body>
@@ -118,7 +118,7 @@ $stmt->close();
         </div>
     </div>
 
-    <script src="/PHP_programs/Library-Management-System/Assets/JS/global.js"></script>
+    <script src="/PHP_programs/Library-MS/Assets/JS/global.js"></script>
     <script>
         // Character counter
         const ta = document.getElementById('reason-txt');
@@ -136,7 +136,7 @@ $stmt->close();
             const formData = new FormData(this);
 
             postForm(
-                    '/PHP_Programs/Library-Management-System/PHP/RequestBook.php',
+                    '/PHP_Programs/Library-MS/PHP/RequestBook.php',
                     formData
                 ).then(r => {
                     if (r.success) {

@@ -69,7 +69,7 @@ $categories = ['Computer Science','Mathematics','Database','Software Engineering
             <tr>
               <td>
                 <?php if ($book['CoverImage']): ?>
-                <img src="/PHP_programs/Library-Management-System/Assets/uploads/books/<?= e($book['CoverImage']) ?>" style="height:52px;width:40px;object-fit:cover;border-radius:4px;">
+                <img src="/PHP_programs/Library-MS/Assets/uploads/books/<?= e($book['CoverImage']) ?>" style="height:52px;width:40px;object-fit:cover;border-radius:4px;">
                 <?php else: ?>
                 <div style="height:52px;width:40px;background:var(--primary);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">📖</div>
                 <?php endif; ?>

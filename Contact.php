@@ -13,9 +13,9 @@ requireUser();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Library Management System</title>
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/global.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/navbar.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/Contact.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/global.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/navbar.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/Contact.css">
 </head>
 
 <body>
@@ -91,8 +91,8 @@ requireUser();
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.6082528386896!2d85.33812657508042!3d27.698500276187616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199bc3725273%3A0x2237abfde1ac9646!2sKantipur%20College%20of%20Management%20and%20Information%20Technology!5e0!3m2!1sen!2snp!4v1788595869667!5m2!1sen!2snp" width="100%" height="250px" style="border:0; border-radius:20px;"></iframe>
         </div>
     </div>
-    <script src="/PHP_programs/Library-Management-System/Assets/JS/global.js"></script>
-    <script src="/PHP_programs/Library-Management-System/Assets/JS/Contact.js"></script>
+    <script src="/PHP_programs/Library-MS/Assets/JS/global.js"></script>
+    <script src="/PHP_programs/Library-MS/Assets/JS/Contact.js"></script>
 </body>
 
 </html>

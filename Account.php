@@ -20,7 +20,7 @@ $account = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 
 if (!$account) {
-    header('Location: /PHP_programs/Library-Management-System/Sign_up.php');
+    header('Location: /PHP_programs/Library-MS/Sign_up.php');
     exit;
 }
 
@@ -75,7 +75,7 @@ $unc->close();
 
 // Avatar URL helper
 $avatarUrl = $account['profile_image']
-    ? '/PHP_programs/Library-Management-System/Assets/uploads/avatars/' . $account['profile_image']
+    ? '/PHP_programs/Library-MS/Assets/uploads/avatars/' . $account['profile_image']
     : null;
 
 $statusMap = ['Approved' => 'badge-approved', 'Rejected' => 'badge-rejected', 'Returned' => 'badge-returned', 'Pending' => 'badge-pending'];
@@ -87,9 +87,9 @@ $statusMap = ['Approved' => 'badge-approved', 'Rejected' => 'badge-rejected', 'R
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account — LibraryMS</title>
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/global.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/navbar.css">
-    <link rel="stylesheet" href="/PHP_programs/Library-Management-System/Assets/CSS/Accounts.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/global.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/navbar.css">
+    <link rel="stylesheet" href="/PHP_programs/Library-MS/Assets/CSS/Accounts.css">
 </head>
 
 <body>
@@ -201,7 +201,7 @@ $statusMap = ['Approved' => 'badge-approved', 'Rejected' => 'badge-rejected', 'R
                 <div class="empty-state">
                     <div style="font-size:3rem;">📚</div>
                     <h3>No borrows yet</h3>
-                    <p>Browse and borrow books from our collection.</p><a href="/PHP_programs/Library-Management-System/BorrowBooks.php" class="btn btn-primary" style="margin-top:.75rem;">Browse Books</a>
+                    <p>Browse and borrow books from our collection.</p><a href="/PHP_programs/Library-MS/BorrowBooks.php" class="btn btn-primary" style="margin-top:.75rem;">Browse Books</a>
                 </div>
             <?php endif; ?>
         </div>
@@ -235,7 +235,7 @@ $statusMap = ['Approved' => 'badge-approved', 'Rejected' => 'badge-rejected', 'R
             <?php else: ?>
                 <div class="empty-state">
                     <div style="font-size:3rem;">📝</div>
-                    <h3>No requests yet</h3><a href="/PHP_programs/Library-Management-System/RequestBook.php" class="btn btn-primary" style="margin-top:.75rem;">Request a Book</a>
+                    <h3>No requests yet</h3><a href="/PHP_programs/Library-MS/RequestBook.php" class="btn btn-primary" style="margin-top:.75rem;">Request a Book</a>
                 </div>
             <?php endif; ?>
         </div>
@@ -310,7 +310,7 @@ $statusMap = ['Approved' => 'badge-approved', 'Rejected' => 'badge-rejected', 'R
         </div>
     </div>
 
-    <script src="/PHP_programs/Library-Management-System/Assets/JS/global.js"></script>
+    <script src="/PHP_programs/Library-MS/Assets/JS/global.js"></script>
     <script>
         // ── Tabs ─────────────────────────────────────────────────────
         document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -334,7 +334,7 @@ $statusMap = ['Approved' => 'badge-approved', 'Rejected' => 'badge-rejected', 'R
             const fd = new FormData();
             fd.append('avatar', this.files[0]);
             fd.append('csrf_token', getCSRFToken());
-            postForm('/PHP_programs/Library-Management-System/PHP/UploadAvatar.php', fd).then(r => {
+            postForm('/PHP_programs/Library-MS/PHP/UploadAvatar.php', fd).then(r => {
                 if (r.success) {
                     const w = document.getElementById('avatar-wrapper');
                     let img = document.getElementById('avatar-img');
@@ -367,7 +367,7 @@ $statusMap = ['Approved' => 'badge-approved', 'Rejected' => 'badge-rejected', 'R
             const data = Object.fromEntries(new FormData(this));
             btn.disabled = true;
             btn.textContent = 'Updating…';
-            postJSON('/PHP_programs/Library-Management-System/PHP/ChangePassword.php', data).then(r => {
+            postJSON('/PHP_programs/Library-MS/PHP/ChangePassword.php', data).then(r => {
                     if (r.success) {
                         toast(r.message, 'success', 7000);
                         closeModal('changePwdModal');
@@ -382,7 +382,7 @@ $statusMap = ['Approved' => 'badge-approved', 'Rejected' => 'badge-rejected', 'R
 
         // ── Notifications ─────────────────────────────────────────────
         function markRead(id) {
-            postJSON('/PHP_programs/Library-Management-System/PHP/Notifications.php', {
+            postJSON('/PHP_programs/Library-MS/PHP/Notifications.php', {
                     action: 'mark_read',
                     id
                 })
@@ -399,7 +399,7 @@ $statusMap = ['Approved' => 'badge-approved', 'Rejected' => 'badge-rejected', 'R
         }
 
         function markAllRead() {
-            postJSON('/PHP_programs/Library-Management-System/PHP/Notifications.php', {
+            postJSON('/PHP_programs/Library-MS/PHP/Notifications.php', {
                     action: 'mark_all'
                 })
                 .then(r => {

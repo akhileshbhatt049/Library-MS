@@ -1,7 +1,4 @@
 <?php
-/**
- * Registration Handler — Library Management System
- */
 
 require_once '../includes/session.php';
 require_once '../includes/functions.php';
@@ -17,13 +14,13 @@ if (!is_array($input)) { jsonError('Invalid request body'); }
 
 requireCSRF($input);
 
-$fullname        = trim($input['fullname']        ?? '');
+$fullname        = trim($input['fullname']         ?? '');
 $email           = trim(strtolower($input['email'] ?? ''));
 $phone           = trim($input['phone']            ?? '');
 $password        = $input['password']              ?? '';
 $confirmPassword = $input['confirmPassword']       ?? '';
 
-// ── Validate ──────────────────────────────────────────────────
+// Validate 
 if (strlen($fullname) < 2 || strlen($fullname) > 100) { jsonError('Full name must be 2–100 characters'); }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL))        { jsonError('Invalid email address'); }
 if (!preg_match('/^[0-9]{7,15}$/', $phone))            { jsonError('Phone must be 7–15 digits only'); }
@@ -35,7 +32,7 @@ if ($password !== $confirmPassword) { jsonError('Passwords do not match'); }
 
 $db = getDB();
 
-// ── Duplicate checks ──────────────────────────────────────────
+// Duplicate checks 
 $chk = $db->prepare("SELECT user_id FROM Accounts WHERE email = ? OR phone = ? LIMIT 1");
 $chk->bind_param('ss', $email, $phone);
 $chk->execute();
@@ -50,7 +47,7 @@ if ($dup) {
     jsonError($emailExists ? 'Email is already registered' : 'Phone number is already registered');
 }
 
-// ── Insert ────────────────────────────────────────────────────
+// ── Insert 
 $user_id  = 'USR' . strtoupper(substr(bin2hex(random_bytes(4)), 0, 6));
 $hashed   = password_hash($password, PASSWORD_DEFAULT);
 $status   = 'active';
